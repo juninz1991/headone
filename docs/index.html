@@ -6,6 +6,12 @@
   <title>HeadOne — Pentest AI</title>
   <meta name="description" content="Autonomous Recon · Safe Exploit · Report" />
   <link rel="icon" href="./assets/favicon.ico" />
+
+  <!-- Fonte opcional: JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -19,6 +25,7 @@
   </script>
   <style>
     html,body{background:#0a0d10;color:#cbd5e1}
+    body{ font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
     .shadow-neon{box-shadow:0 0 20px rgba(16,185,129,.12)}
   </style>
 </head>
@@ -32,6 +39,9 @@
   <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
   <!-- Babel para JSX no browser -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Força HOME na primeira visita -->
+  <script>if(!location.hash){ location.hash = "#/home"; }</script>
 
   <!-- App -->
   <script type="text/babel" src="./app.jsx"></script>
