@@ -444,15 +444,78 @@ function Input({ label, value, setValue, placeholder }){
     </label>
   );
 }
-
 /** =========================
- *  ROOT (controle de login)
+ *  HOME (explicação)
  *  ========================= */
-function Root(){
-  const [ok,setOk] = useState(!!localStorage.getItem(TOKEN_KEY));
-  return ok ? <App onLogout={()=>{ localStorage.removeItem(TOKEN_KEY); setOk(false); }} />
-            : <Login onOk={()=>setOk(true)} />;
+function Home({ onEnter }){
+  return (
+    <div className="min-h-screen bg-[#0a0d10] text-slate-200 flex flex-col">
+      {/* Topbar simples */}
+      <header className="sticky top-0 z-20 backdrop-blur bg-black/40 border-b border-emerald-400/20">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-2">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-400/30 grid place-content-center">
+              <Icon.Shield className="w-4 h-4 text-emerald-300" />
+            </div>
+            <div>
+              <div className="text-emerald-300 font-semibold tracking-wide">HeadOne</div>
+              <div className="text-xs text-emerald-400/60">Pentest com IA</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Conteúdo */}
+      <main className="max-w-4xl mx-auto flex-1 px-6 py-12">
+        <h1 className="text-3xl font-bold text-emerald-300 mb-4">🛡️ HeadOne — Pentest AI</h1>
+        <p className="text-slate-300 mb-6 leading-relaxed">
+          O <b>HeadOne</b> é uma plataforma de <span className="text-emerald-400">Pentest com Inteligência Artificial</span>, 
+          criada para oferecer <b>velocidade</b>, <b>governança</b> e <b>relatórios executivos</b>. Integra Nmap, Nuclei, Subfinder e httpx
+          com fluxo assistido por IA.
+        </p>
+
+        <ul className="list-disc ml-6 text-slate-300 space-y-2 mb-8">
+          <li>🚀 Pentests sob demanda e contínuos (PtaaS)</li>
+          <li>🤖 Automação com IA + Validação humana</li>
+          <li>📊 Relatórios prontos (Executivo + Técnico)</li>
+          <li>💸 Redução de custo vs. consultorias tradicionais</li>
+        </ul>
+
+        <div className="flex gap-4">
+          <button onClick={onEnter}
+            className="px-6 py-3 rounded-xl bg-emerald-600/80 hover:bg-emerald-600 text-white border border-emerald-400/30">
+            Entrar no Sistema
+          </button>
+          <a href="#contato"
+            className="px-6 py-3 rounded-xl border border-emerald-400/30 text-emerald-300 hover:bg-emerald-500/10">
+            Falar com Comercial
+          </a>
+        </div>
+      </main>
+
+      <footer className="border-t border-emerald-400/20 text-xs text-slate-400/70">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between">
+          <div>© {new Date().getFullYear()} HeadOne</div>
+          <div>Autonomous Recon · Safe Exploit · Report</div>
+        </div>
+      </footer>
+    </div>
+  );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Root />);
+
+/** =========================
+ *  ROOT (home → login → app)
+ *  ========================= */
+function Root(){
+  const [stage, setStage] = React.useState("home"); // home | login | app
+
+  // Se já houver token, pula direto pro app
+  React.useEffect(()=>{
+    if(localStorage.getItem(TOKEN_KEY)) setStage("app");
+  },[]);
+
+  if(stage === "home")  return <Home  onEnter={()=>setStage("login")} />;
+  if(stage === "login") return <Login onOk={()=>setStage("app")} />;
+  if(stage === "app")   return <App   onLogout={()=>{ localStorage.removeItem(TOKEN_KEY); setStage("home"); }} />;
+}
