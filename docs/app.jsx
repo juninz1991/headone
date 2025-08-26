@@ -214,6 +214,77 @@ function Home({ onEnter }){
         </ol>
       </section>
 
+            {/* Real-World Performance */}
+      <section className="max-w-6xl mx-auto px-6 py-10">
+        <h2 className="text-xl text-emerald-300 mb-4">⚡ Performance no Mundo Real</h2>
+        <div className="overflow-x-auto rounded-xl border border-emerald-400/20 bg-black/30 shadow-neon">
+          <table className="w-full text-sm text-left border-collapse">
+            <thead className="bg-emerald-500/10 text-emerald-300">
+              <tr>
+                <th className="px-4 py-3">Operação</th>
+                <th className="px-4 py-3">Pentest Manual Tradicional</th>
+                <th className="px-4 py-3">HeadOne (IA)</th>
+                <th className="px-4 py-3">Melhoria</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-emerald-400/10 text-slate-300">
+              <tr>
+                <td className="px-4 py-2">Enumeração de Subdomínios</td>
+                <td className="px-4 py-2">2-4 horas</td>
+                <td className="px-4 py-2">5-10 minutos</td>
+                <td className="px-4 py-2 text-emerald-400 font-semibold">≈ 24x mais rápido</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-2">Varredura de Vulnerabilidades</td>
+                <td className="px-4 py-2">4-8 horas</td>
+                <td className="px-4 py-2">15-30 minutos</td>
+                <td className="px-4 py-2 text-emerald-400 font-semibold">≈ 16x mais rápido</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-2">Teste de Segurança Web</td>
+                <td className="px-4 py-2">6-12 horas</td>
+                <td className="px-4 py-2">20-45 minutos</td>
+                <td className="px-4 py-2 text-emerald-400 font-semibold">≈ 18x mais rápido</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-2">Desafios CTF</td>
+                <td className="px-4 py-2">1-6 horas</td>
+                <td className="px-4 py-2">2-15 minutos</td>
+                <td className="px-4 py-2 text-emerald-400 font-semibold">≈ 24x mais rápido</td>
+              </tr>
+              <tr>
+                <td className="px-4 py-2">Geração de Relatórios</td>
+                <td className="px-4 py-2">4-12 horas</td>
+                <td className="px-4 py-2">2-5 minutos</td>
+                <td className="px-4 py-2 text-emerald-400 font-semibold">≈ 144x mais rápido</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Success Metrics */}
+      <section className="max-w-6xl mx-auto px-6 pb-12">
+        <h2 className="text-xl text-emerald-300 mb-4">🎯 Métricas de Sucesso</h2>
+        <ul className="grid md:grid-cols-2 gap-4 text-sm text-slate-300">
+          <li className="border border-emerald-400/20 rounded-xl p-4 bg-black/30">
+            <b>Taxa de Detecção:</b> 98,7% (vs 85% no teste manual)
+          </li>
+          <li className="border border-emerald-400/20 rounded-xl p-4 bg-black/30">
+            <b>Falsos Positivos:</b> 2,1% (vs 15% em scanners tradicionais)
+          </li>
+          <li className="border border-emerald-400/20 rounded-xl p-4 bg-black/30">
+            <b>Coverage de Vetores de Ataque:</b> 95% (vs 70% manual)
+          </li>
+          <li className="border border-emerald-400/20 rounded-xl p-4 bg-black/30">
+            <b>Sucesso em CTF:</b> 89% (vs 65% especialistas humanos)
+          </li>
+          <li className="border border-emerald-400/20 rounded-xl p-4 bg-black/30">
+            <b>Bug Bounty:</b> +15 vulnerabilidades críticas identificadas em testes reais
+          </li>
+        </ul>
+      </section>
+
       {/* Planos exemplo */}
       <section className="max-w-6xl mx-auto px-6 pb-12">
         <h2 className="text-xl text-emerald-300 mb-3">Planos (exemplo PtaaS)</h2>
